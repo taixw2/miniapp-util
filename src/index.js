@@ -1,7 +1,5 @@
-const promise = require('./promise.js').Promise;
-
+import {Promise} from './promise.js';
 const noop = function() {};
-
 
 /**
  * 转换称两位数
@@ -127,7 +125,7 @@ exports.hideLoading = function() {
  * mode基类
  */
 function modal(options, showCancel = false) {
-    return new promise((reslove, reject) => {
+    return new Promise((reslove, reject) => {
 
         const SUCCESS = options.success || noop;
         const FAIL = options.fail || noop;
@@ -242,7 +240,7 @@ function request(configuration) {
 
     return function(requestParams) {
 
-        return new promise(function(fulfill, reject) {
+        return new Promise(function(fulfill, reject) {
 
                 requestParams = assign({},configuration, requestParams);
 
@@ -327,7 +325,7 @@ function configUserInfo(userInfo) {
      * @return {[type]}            [promise]
      */
     return function getUserInfo(callback = noop, force = false) {
-        return new promise(function(reslove, reject) {
+        return new Promise(function(reslove, reject) {
             if (userInfo.code && !force) {
                 reslove(userInfo.code);
                 return;
@@ -344,7 +342,7 @@ function configUserInfo(userInfo) {
             });
         }).then(function(code) {
             if (!force && userInfo.data) return userInfo.data;
-            return new promise(function(reslove, reject) {
+            return new Promise(function(reslove, reject) {
                 wx.getUserInfo({
                     success(res) {
                         reslove(res);
@@ -380,7 +378,7 @@ function configUserInfo(userInfo) {
  * @return {[type]}           [description]
  */
 function payment(payParams) {
-    return new promise(function(fulfill, reject) {
+    return new Promise(function(fulfill, reject) {
         payParams.success = function(res) {
             console.log(res);
             fulfill(res);
@@ -417,7 +415,7 @@ function uploadFile(uploadFileConfig) {
 
     return function(options) {
 
-        return new promise(function(fulfill, reject) {
+        return new Promise(function(fulfill, reject) {
 
             options = assign({}, uploadFileConfig.requestParams, options);
             options.url = options.url ? uploadFileConfig.root + options.url : uploadFileConfig.root + uploadFileConfig.defaultURL;
