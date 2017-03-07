@@ -1,0 +1,49 @@
+{
+    "env": {
+        "browser": true,
+        "commonjs": true,
+        "es6": true
+    },
+    "extends": "airbnb",
+    "installedESLint" : true,
+    "parserOptions": {
+        "sourceType": "module"
+    },
+    "globals": {
+      "Page": true,
+      "wx": true,
+      "getCurrentPages": true,
+      "getApp": true
+    },
+    "rules": {
+        "indent": [
+            "error",
+            2
+        ],
+        "linebreak-style": [
+            "error",
+            "windows"
+        ],
+        "quotes": [
+            "error",
+            "single"
+        ],
+        "semi": [
+            "error",
+            "never"
+        ],
+        "no-param-reassign": [
+            "error",
+            { "props": false }
+        ],
+        "global-require": [
+          "off"
+        ],
+        "no-bitwise": [
+          "error", { "allow": ["&"] }
+        ],
+        "no-restricted-syntax": [
+          "error"
+        ]
+    }
+}
