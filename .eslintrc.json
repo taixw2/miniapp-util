@@ -4,16 +4,12 @@
         "commonjs": true,
         "es6": true
     },
-    "extends": "airbnb",
-    "installedESLint" : true,
+    "extends": "airbnb-base",
     "parserOptions": {
         "sourceType": "module"
     },
     "globals": {
-      "Page": true,
-      "wx": true,
-      "getCurrentPages": true,
-      "getApp": true
+        "wx": true
     },
     "rules": {
         "indent": [
@@ -34,16 +30,23 @@
         ],
         "no-param-reassign": [
             "error",
-            { "props": false }
+            {
+                "props": false
+            }
         ],
         "global-require": [
-          "off"
+            "off"
         ],
         "no-bitwise": [
-          "error", { "allow": ["&"] }
+            "error",
+            {
+                "allow": [
+                    "&"
+                ]
+            }
         ],
-        "no-restricted-syntax": [
-          "error"
-        ]
+        "no-restricted-syntax": "off",
+        "guard-for-in": "off",
+        "no-confusing-arrow": "off"
     }
 }
