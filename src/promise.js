@@ -7,7 +7,7 @@
 // Check for native Promise and it has correct interface
 //
 
-var NativePromise = global.Promise;
+var NativePromise = typeof Promise !== 'undefined' ? Promise : null;
 var nativePromiseSupported =
   NativePromise &&
   // Some of these methods are missing from
@@ -359,4 +359,4 @@ Promise.reject = function(reason){
   });
 };
 
-})(typeof window != 'undefined' ? window : typeof global != 'undefined' ? global : typeof self != 'undefined' ? self : this);
+})(typeof global === 'undefined' ? {} : global);
